@@ -27,13 +27,18 @@ public class Post {
     @ElementCollection
     @CollectionTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"))
     @Column(name = "tag")
-    private List<String> tags  = new ArrayList<>();
+    private List<String> tags = new ArrayList<>();
     @Column(name = "likes_count")
     private Integer likesCount = 0;
     @Column(name = "comments_count")
     private Integer commentsCount = 0;
     @Column(name = "created_at")
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
     @Lob
     private byte[] image;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
 }
