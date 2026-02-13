@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: blog_db
+    environment:
+      POSTGRES_DB: main_db
+      POSTGRES_USER: main_user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    networks:
+      blog_net:
+        aliases:
+          - localhost
+
+  backend:
+    build: .
+    container_name: blog_api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - blog_net
+
+networks:
+  blog_net:
