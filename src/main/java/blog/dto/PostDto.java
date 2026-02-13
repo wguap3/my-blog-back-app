@@ -9,6 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class PostDto {
+    @JsonProperty("id")
     private Long id;
     private String title;
     private String text;

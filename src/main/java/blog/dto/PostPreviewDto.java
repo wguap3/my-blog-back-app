@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @Getter
 public class PostPreviewDto {
+    @JsonProperty("id")
     private Long id;
 
     private String title;
