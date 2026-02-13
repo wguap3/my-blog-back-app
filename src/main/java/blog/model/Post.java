@@ -28,7 +28,7 @@ public class Post {
     @CollectionTable(name = "post_tag", joinColumns = @JoinColumn(name = "post_id"))
     @Column(name = "tag")
     private List<String> tags = new ArrayList<>();
-    @Column(name = "likes_count",nullable = false)
+    @Column(name = "likes_count", nullable = false)
     private Integer likesCount = 0;
     @Column(name = "comments_count")
     private Integer commentsCount = 0;
