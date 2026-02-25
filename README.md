@@ -1,4 +1,4 @@
-# Blog Backend — Спринт 3
+# Blog Backend — Спринт 4
 
 Бэкенд приложения-блога на чистом **Spring Framework** (без Spring Boot).
 
