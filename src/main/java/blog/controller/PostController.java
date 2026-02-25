@@ -1,4 +1,4 @@
-package controller;
+package blog.controller;
 
 import blog.dto.PostDto;
 import blog.dto.PostRequestDto;
