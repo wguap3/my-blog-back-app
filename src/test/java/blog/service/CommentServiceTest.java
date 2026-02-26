@@ -8,10 +8,11 @@ import blog.model.Post;
 import blog.repository.CommentRepository;
 import blog.repository.PostRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,17 +23,17 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
 public class CommentServiceTest {
-    @MockitoBean
+    @Mock
     private CommentRepository commentRepository;
-    @MockitoBean
+    @Mock
     private PostRepository postRepository;
-    @MockitoBean
+    @Mock
     private CommentMapper commentMapper;
 
-    @Autowired
+    @InjectMocks
     private CommentServiceImpl commentService;
 
     @Test
