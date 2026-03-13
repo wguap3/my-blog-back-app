@@ -9,9 +9,7 @@ services:
     ports:
       - "5432:5432"
     networks:
-      blog_net:
-        aliases:
-          - localhost
+      - blog_net
 
   backend:
     build: .
@@ -20,6 +18,10 @@ services:
       - "8080:8080"
     depends_on:
       - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/main_db
+      SPRING_DATASOURCE_USERNAME: main_user
+      SPRING_DATASOURCE_PASSWORD: password
     networks:
       - blog_net
 

@@ -1,33 +1,26 @@
 package blog.controller;
 
-
-import blog.config.TestConfiguration;
 import blog.repository.PostRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@SpringBootTest
+@AutoConfigureMockMvc
 @ActiveProfiles("test")
-@SpringJUnitConfig(classes = {TestConfiguration.class})
-@WebAppConfiguration
 public class PostControllerIntegrationTest {
-
-    @Autowired
-    private WebApplicationContext wac;
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -35,11 +28,11 @@ public class PostControllerIntegrationTest {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
     private MockMvc mockMvc;
 
     @BeforeEach
     void setup() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 
         jdbcTemplate.execute("DELETE FROM post_tag");
         jdbcTemplate.execute("DELETE FROM comments");

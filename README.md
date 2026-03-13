@@ -1,4 +1,4 @@
-# Blog Backend — Спринт 3
+# Blog Backend — Спринт 4
 
 Бэкенд приложения-блога на чистом **Spring Framework** (без Spring Boot).
 
@@ -26,7 +26,7 @@
 
 ## Быстрый запуск (Docker)
 
-Для запуска всей инфраструктуры (база данных + бэкенд) убедитесь, что у вас установлен Docker и Docker Desktop запущен.
+Для запуска всей инфраструктуры убедитесь, что у вас установлен Docker и Docker Desktop запущен.
 
 1. **Клонируйте репозиторий:**
    ```bash
@@ -34,7 +34,7 @@
    cd my-blog-back-app
 2. **Соберите проект и запустите контейнеры:**
    ```bash
-   mvn clean package
+   ./gradlew clean bootJar -x test
    docker-compose up --build
 3. **API будет доступно по адресу: http://localhost:8080/**
 
