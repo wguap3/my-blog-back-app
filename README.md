@@ -1,4 +1,4 @@
-# Blog Backend
+# PostFlow
 
 ## Описание
 
@@ -28,8 +28,8 @@
 
 1. **Клонируйте репозиторий:**
    ```bash
-   git clone [https://github.com/wguap3/my-blog-back-app.git]
-   cd my-blog-back-app
+   git clone [https://github.com/wguap3/PostFlow.git]
+   cd PostFlow
 2. **Соберите проект и запустите контейнеры:**
    ```bash
    ./gradlew clean bootJar -x test
